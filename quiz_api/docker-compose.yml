@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  quiz_api.web:
+    build: .
+    ports:
+      - "8000:80"
+  quiz_api.redis:
+    image: "redis:alpine"
+networks:
+  default:
+    external: true
+    name: test-net
