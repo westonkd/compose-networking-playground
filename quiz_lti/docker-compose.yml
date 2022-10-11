@@ -1,12 +1,12 @@
 version: "3.9"
 services:
-  quiz_lti.web:
+  web.quiz-lti.local.inseng.net:
     build: .
     ports:
       - "9000:80"
     labels:
       - "traefik.enable=true"
-  quiz_lti.redis:
+  redis.quiz-lti:
     image: "redis:alpine"
 networks:
   default:

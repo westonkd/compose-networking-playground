@@ -4,15 +4,18 @@ version: "3.7"
 
 services:
   traefik:
-    image: "traefik:v2.1"
+    image: "traefik:v2.9.1"
     container_name: "traefik"
     hostname: "traefik"
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./traefik.yml:/traefik.yml:ro"
+      - "./tls.yml:/etc/traefik/tls.yml"
+      - "./certificates:/etc/ssl/traefik/"
 
 networks:
   default:

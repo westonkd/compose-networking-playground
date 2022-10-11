@@ -1,0 +1,10 @@
+
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /etc/ssl/traefik/local-inseng.crt
+        keyFile: /etc/ssl/traefik/local-inseng.key
+  certificates:
+    - certFile: /etc/ssl/traefik/local-inseng.crt
+      keyFile: /etc/ssl/traefik/local-inseng.key

@@ -1,7 +1,7 @@
 ## STATIC CONFIGURATION
 # Source: https://github.com/DoTheEvo/Traefik-v2-examples#1-traefik-routing-to-various-docker-containers
 log:
-  level: INFO
+  level: DEBUG
 
 api:
   insecure: true
@@ -10,8 +10,21 @@ api:
 entryPoints:
   web:
     address: ":80"
+    http:
+      redirections:
+        entrypoint:
+          to: websecure
+          scheme: https
+
+  websecure:
+    address: ':443'
+    http:
+      tls:
+        true
 
 providers:
+  file:
+    filename: /etc/traefik/tls.yml
   docker:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
