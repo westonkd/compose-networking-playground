@@ -1,3 +1,0 @@
-# Principles:
-1. Bind web to 0.0.0.0
-2. Use port 80 on container for web
