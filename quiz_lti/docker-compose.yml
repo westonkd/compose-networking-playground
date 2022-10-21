@@ -1,12 +1,21 @@
 version: "3.9"
+
+x-aliases:
+  - &serviceHost web.quiz-lti.local.inseng.net
+
 services:
-  web.quiz-lti.local.inseng.net:
+  quiz_lti.web:
     build: .
     ports:
       - "9000:80"
     labels:
-      - "traefik.enable=true"
-  redis.quiz-lti:
+      instructure.serviceHost: *serviceHost
+      traefik.enable: true
+    networks:
+      default:
+        aliases:
+          - *serviceHost
+  quiz_lti.redis:
     image: "redis:alpine"
 networks:
   default:
