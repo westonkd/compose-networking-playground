@@ -1,6 +1,6 @@
 # Principles:
 ## general
-- Compose service names are will become an the service's addressable hostname. They should be globally unique (see examples in docker-compose.yml files)
+- Compose service names will become the service's addressable hostname. They should be globally unique (see examples in docker-compose.yml files)
 - A user-defined bridge network is used for container-to-container communication
 - Traefik is used as a reverse proxy for host-to-container communication
 - Traefik also configures the TLS layer and uses a `local.inseng.net` cert
